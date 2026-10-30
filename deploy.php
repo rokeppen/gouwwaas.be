@@ -77,6 +77,21 @@ task('deploy:vendors', function () {
     writeln('Skipping composer install: vendor/ was built in CI.');
 });
 
+// Fail early with a clear message when the server's PHP is too old for vendor/.
+desc('Checks that the server PHP satisfies the composer platform requirements');
+task('deploy:check_php', function () {
+    $version = run('{{bin/php}} -r "echo PHP_VERSION;"');
+    writeln("Using {{bin/php}} (PHP $version)");
+
+    try {
+        run('{{bin/php}} {{release_path}}/vendor/composer/platform_check.php');
+    } catch (\Throwable $e) {
+        throw error("{{bin/php}} is PHP $version, which is too old for this release. Set the DEPLOY_PHP_BIN secret to a newer PHP binary on the server.");
+    }
+});
+
+after('deploy:update_code', 'deploy:check_php');
+
 desc('Uploads the production .env generated from GitHub secrets');
 task('deploy:upload_env', function () {
     $source = get('dotenv_source');
