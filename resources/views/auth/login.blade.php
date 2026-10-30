@@ -3,29 +3,35 @@
 @section('title', 'Log in')
 
 @section('content')
-    <div class="card">
-        <h1>Log in</h1>
+    <section class="container section">
+        <div class="card form-card">
+            <h1>Log in</h1>
 
-        <form method="POST" action="{{ route('login') }}">
-            @csrf
+            <form method="POST" action="{{ route('login') }}" class="form">
+                @csrf
 
-            <label for="email">E-mail</label>
-            <input id="email" type="email" name="email" value="{{ old('email') }}" required autofocus autocomplete="username">
-            @error('email')
-                <p class="error">{{ $message }}</p>
-            @enderror
+                <div class="field">
+                    <label for="email">E-mail</label>
+                    <input id="email" type="email" name="email" value="{{ old('email') }}" required autofocus autocomplete="username" @error('email') aria-invalid="true" aria-describedby="email-error" @enderror>
+                    @error('email')
+                        <p class="error" id="email-error">{{ $message }}</p>
+                    @enderror
+                </div>
 
-            <label for="password">Password</label>
-            <input id="password" type="password" name="password" required autocomplete="current-password">
-            @error('password')
-                <p class="error">{{ $message }}</p>
-            @enderror
+                <div class="field">
+                    <label for="password">Password</label>
+                    <input id="password" type="password" name="password" required autocomplete="current-password" @error('password') aria-invalid="true" aria-describedby="password-error" @enderror>
+                    @error('password')
+                        <p class="error" id="password-error">{{ $message }}</p>
+                    @enderror
+                </div>
 
-            <label class="checkbox">
-                <input type="checkbox" name="remember"> Remember me
-            </label>
+                <label class="checkbox">
+                    <input type="checkbox" name="remember"> Remember me
+                </label>
 
-            <button type="submit" class="button">Log in</button>
-        </form>
-    </div>
+                <button type="submit" class="button button-block">Log in</button>
+            </form>
+        </div>
+    </section>
 @endsection

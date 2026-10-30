@@ -26,7 +26,12 @@ Laravel 13 website (PHP 8.4+) for Gouw Waas.
 - `/activities` – activities (`resources/views/activities.blade.php`)
 - `/login` – login; once logged in the header shows "Welcome {name}!"
 
-Styling lives in `public/css/app.css` (no build step required).
+Styling lives in `public/css/app.css` (no build step required). It follows the
+Scouts en Gidsen Vlaanderen house style colours, with Zilla Slab and Nunito Sans
+(self-hosted in `public/fonts`, SIL OFL) standing in for the paid house fonts.
+
+**Logo:** put the Gouw Waas logo at `public/images/logo.svg` and the header uses
+it automatically instead of the "GW" placeholder.
 
 ## Tests
 

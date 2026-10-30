@@ -26,7 +26,7 @@ class SiteTest extends TestCase
             ->assertRedirect('/');
 
         $this->assertAuthenticatedAs($user);
-        $this->get('/')->assertSee('Welcome Robin!');
+        $this->get('/')->assertSeeText('Welcome Robin!');
     }
 
     public function test_wrong_password_is_rejected(): void
