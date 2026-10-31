@@ -23,15 +23,18 @@ Laravel 13 website (PHP 8.4+) for Gouw Waas.
 
 The site is in Dutch (`APP_LOCALE=nl`).
 
-- `/` – home: introduction, the four districts with their groups, and how to join
-  (`resources/views/home.blade.php`)
+- `/` – home: introduction and how to join (`resources/views/home.blade.php`)
+- `/districten` – the four districts with their groups, each linking to its website
+  (`resources/views/districten.blade.php`)
 - `/wie-is-wie` – gouwbureau, adjuncten and districtscommissarissen
   (`resources/views/wie-is-wie.blade.php`)
 - `/activiteiten` – activities (`resources/views/activiteiten.blade.php`)
 - `/login` – login; once logged in the header shows "Welkom {naam}!"
 
-**Districts and groups** are listed in `config/gouw.php` (source: Scoutnet).
-Edit that file to add, remove or rename a group; the counts update automatically.
+**Districts and groups** are listed in `config/gouw.php` (source: Scoutnet) as
+`[name, municipality, group number, website]`. Edit that file to add, remove or
+rename a group or change its website (`null` = no link); the counts update
+automatically.
 
 Styling lives in `public/css/app.css` (no build step required). Colours come from
 the Gouw Waas emblem (`public/images/logo-*.webp`) and the Scouts en Gidsen

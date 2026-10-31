@@ -10,6 +10,7 @@ use Illuminate\Support\Facades\Route;
 */
 
 Route::view('/', 'home', ['districts' => config('gouw.districts')])->name('home');
+Route::view('/districten', 'districten', ['districts' => config('gouw.districts')])->name('districten');
 Route::view('/wie-is-wie', 'wie-is-wie', ['districts' => config('gouw.districts')])->name('wie-is-wie');
 Route::view('/activiteiten', 'activiteiten')->name('activiteiten');
 

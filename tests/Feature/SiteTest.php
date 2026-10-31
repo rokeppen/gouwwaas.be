@@ -13,20 +13,25 @@ class SiteTest extends TestCase
     public function test_public_pages_are_reachable(): void
     {
         $this->get('/')->assertOk()->assertSee('Inloggen');
+        $this->get('/districten')->assertOk()->assertSee('District Klaas');
         $this->get('/wie-is-wie')->assertOk()->assertSee('Gouwvoorzitter');
         $this->get('/activiteiten')->assertOk()->assertSee('Activiteiten');
         $this->get('/login')->assertOk();
     }
 
-    public function test_home_lists_every_district_with_its_groups(): void
+    public function test_districten_lists_every_group_with_its_website(): void
     {
-        $response = $this->get('/')->assertOk();
+        $response = $this->get('/districten')->assertOk();
 
         foreach (config('gouw.districts') as $district) {
             $response->assertSee('District '.$district['name']);
 
-            foreach ($district['groups'] as [$name]) {
+            foreach ($district['groups'] as [$name, , , $website]) {
                 $response->assertSee($name);
+
+                if ($website) {
+                    $response->assertSee('href="'.$website.'"', false);
+                }
             }
         }
     }

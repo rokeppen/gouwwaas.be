@@ -22,6 +22,7 @@
 
             <nav class="tabs" aria-label="Hoofdmenu">
                 <a href="{{ route('home') }}" @class(['tab', 'active' => request()->routeIs('home')]) @if (request()->routeIs('home')) aria-current="page" @endif>Home</a>
+                <a href="{{ route('districten') }}" @class(['tab', 'active' => request()->routeIs('districten')]) @if (request()->routeIs('districten')) aria-current="page" @endif>Districten</a>
                 <a href="{{ route('wie-is-wie') }}" @class(['tab', 'active' => request()->routeIs('wie-is-wie')]) @if (request()->routeIs('wie-is-wie')) aria-current="page" @endif>Wie is wie</a>
                 <a href="{{ route('activiteiten') }}" @class(['tab', 'active' => request()->routeIs('activiteiten')]) @if (request()->routeIs('activiteiten')) aria-current="page" @endif>Activiteiten</a>
             </nav>
@@ -72,11 +73,10 @@
             </div>
             <div class="footer-federation">
                 <a href="https://www.scoutsengidsenvlaanderen.be/" rel="noopener" class="federation-link">
-                    <img src="{{ asset('images/scouts-en-gidsen-vlaanderen-wit.svg') }}" alt="Scouts en Gidsen Vlaanderen" width="40" height="61" loading="lazy">
+                    <img src="{{ asset('images/scouts-en-gidsen-vlaanderen-wit.svg') }}" alt="Scouts en Gidsen Vlaanderen" width="92" height="140" loading="lazy">
                 </a>
             </div>
         </div>
-        <div class="container footer-bottom">&copy; {{ date('Y') }} Gouw Waas</div>
     </footer>
 </body>
 </html>

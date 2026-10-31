@@ -79,7 +79,7 @@
         <ul class="district-links">
             @foreach ($districts as $slug => $district)
                 <li>
-                    <a href="{{ route('home') }}#district-{{ $slug }}">
+                    <a href="{{ route('districten') }}#district-{{ $slug }}">
                         <span>District {{ $district['name'] }}</span>
                         <span class="muted">{{ count($district['groups']) }} groepen</span>
                     </a>

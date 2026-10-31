@@ -12,7 +12,7 @@
                     en één thuisbasis: gouwhuis Karree in Sint-Niklaas.
                 </p>
                 <div class="hero-actions">
-                    <a href="#districten" class="button button-accent">Onze districten</a>
+                    <a href="{{ route('districten') }}" class="button button-accent">Onze districten</a>
                     <a href="{{ route('wie-is-wie') }}" class="button button-outline-light">Wie is wie</a>
                 </div>
             </div>
@@ -32,6 +32,7 @@
                     35 scoutsgroepen vertegenwoordigen verspreid over het ruime Waasland. Onze uitvalsbasis is in
                     gouwhuis Karree in Sint-Niklaas.
                 </p>
+                <p><a href="{{ route('districten') }}" class="arrow-link">Bekijk alle groepen per district</a></p>
             </article>
 
             <article class="prose">
@@ -50,35 +51,7 @@
         </div>
     </section>
 
-    <section class="section section-tinted" id="districten">
-        <div class="container">
-            <div class="section-heading">
-                <h2>Onze districten</h2>
-                <p>Elk district brengt de scoutsgroepen uit zijn regio samen.</p>
-            </div>
-
-            <div class="districts">
-                @foreach ($districts as $slug => $district)
-                    <article class="district" id="district-{{ $slug }}">
-                        <header class="district-header">
-                            <h3>District {{ $district['name'] }}</h3>
-                            <span class="badge">{{ count($district['groups']) }} groepen</span>
-                        </header>
-                        <ul class="group-list">
-                            @foreach ($district['groups'] as [$name, $town, $number])
-                                <li>
-                                    <span class="group-name">{{ $name }}</span>
-                                    <span class="group-town">{{ $town }}</span>
-                                </li>
-                            @endforeach
-                        </ul>
-                    </article>
-                @endforeach
-            </div>
-        </div>
-    </section>
-
-    <section class="container section">
+    <section class="container section section-flush-top">
         <div class="cta">
             <div class="cta-text">
                 <h2>Interessant, kan ik ook bij de gouw komen?</h2>
