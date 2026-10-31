@@ -242,18 +242,6 @@ a:hover { color: var(--olive-dark); }
     filter: drop-shadow(0 12px 30px rgba(0, 0, 0, .35));
 }
 
-.eyebrow {
-    display: inline-block;
-    margin-bottom: 18px;
-    padding: 4px 14px;
-    border-radius: 999px;
-    background: rgba(204, 204, 51, .18);
-    color: var(--lime);
-    font-size: .875rem;
-    font-weight: 800;
-    letter-spacing: .02em;
-}
-
 .lead {
     max-width: 52ch;
     font-size: clamp(1.125rem, 2.2vw, 1.3125rem);
@@ -554,6 +542,18 @@ input[aria-invalid=true] { border-color: var(--red); }
     gap: 6px;
 }
 
+.footer-federation { justify-self: end; }
+
+.federation-link {
+    display: inline-block;
+    line-height: 0;
+    opacity: .85;
+    transition: opacity .15s;
+}
+
+.federation-link:hover { opacity: 1; }
+.federation-link img { width: 48px; height: auto; }
+
 .footer-bottom {
     padding-top: 16px;
     padding-bottom: 24px;
@@ -616,6 +616,7 @@ input[aria-invalid=true] { border-color: var(--red); }
     .district-header, .group-list { padding-left: 18px; padding-right: 18px; }
 
     .footer-inner { grid-template-columns: 1fr; }
+    .footer-federation { justify-self: start; }
 }
 
 @media (prefers-reduced-motion: reduce) {

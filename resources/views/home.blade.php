@@ -6,7 +6,6 @@
     <section class="hero">
         <div class="container hero-inner">
             <div class="hero-text">
-                <p class="eyebrow">Scouts en Gidsen Vlaanderen · Waasland</p>
                 <h1>Welkom bij Gouw&nbsp;Waas!</h1>
                 <p class="lead">
                     Vier districten, {{ collect($districts)->sum(fn ($district) => count($district['groups'])) }} scoutsgroepen

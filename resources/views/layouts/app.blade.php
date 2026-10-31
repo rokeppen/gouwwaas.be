@@ -57,11 +57,10 @@
                     <li><a href="https://www.instagram.com/gouw.waas/" rel="noopener">Instagram</a></li>
                 </ul>
             </div>
-            <div>
-                <p class="footer-heading">Scouts en Gidsen Vlaanderen</p>
-                <ul class="footer-links">
-                    <li><a href="https://www.scoutsengidsenvlaanderen.be" rel="noopener">scoutsengidsenvlaanderen.be</a></li>
-                </ul>
+            <div class="footer-federation">
+                <a href="https://www.scoutsengidsenvlaanderen.be/" rel="noopener" class="federation-link">
+                    <img src="{{ asset('images/scouts-en-gidsen-vlaanderen-wit.svg') }}" alt="Scouts en Gidsen Vlaanderen" width="40" height="61" loading="lazy">
+                </a>
             </div>
         </div>
         <div class="container footer-bottom">&copy; {{ date('Y') }} Gouw Waas</div>
