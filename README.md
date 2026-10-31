@@ -21,17 +21,22 @@ Laravel 13 website (PHP 8.4+) for Gouw Waas.
 
 ## Pages
 
-- `/` – home with introduction text (`resources/views/home.blade.php`)
-- `/who-is-who` – who is who (`resources/views/who-is-who.blade.php`)
-- `/activities` – activities (`resources/views/activities.blade.php`)
-- `/login` – login; once logged in the header shows "Welcome {name}!"
+The site is in Dutch (`APP_LOCALE=nl`).
 
-Styling lives in `public/css/app.css` (no build step required). It follows the
-Scouts en Gidsen Vlaanderen house style colours, with Zilla Slab and Nunito Sans
-(self-hosted in `public/fonts`, SIL OFL) standing in for the paid house fonts.
+- `/` – home: introduction, the four districts with their groups, and how to join
+  (`resources/views/home.blade.php`)
+- `/wie-is-wie` – gouwbureau, adjuncten and districtscommissarissen
+  (`resources/views/wie-is-wie.blade.php`)
+- `/activiteiten` – activities (`resources/views/activiteiten.blade.php`)
+- `/login` – login; once logged in the header shows "Welkom {naam}!"
 
-**Logo:** put the Gouw Waas logo at `public/images/logo.svg` and the header uses
-it automatically instead of the "GW" placeholder.
+**Districts and groups** are listed in `config/gouw.php` (source: Scoutnet).
+Edit that file to add, remove or rename a group; the counts update automatically.
+
+Styling lives in `public/css/app.css` (no build step required). Colours come from
+the Gouw Waas emblem (`public/images/logo-*.webp`) and the Scouts en Gidsen
+Vlaanderen house style, with Zilla Slab and Nunito Sans (self-hosted in
+`public/fonts`, SIL OFL) standing in for the paid house fonts.
 
 ## Tests
 

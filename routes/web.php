@@ -9,9 +9,9 @@ use Illuminate\Support\Facades\Route;
 |--------------------------------------------------------------------------
 */
 
-Route::view('/', 'home')->name('home');
-Route::view('/who-is-who', 'who-is-who')->name('who-is-who');
-Route::view('/activities', 'activities')->name('activities');
+Route::view('/', 'home', ['districts' => config('gouw.districts')])->name('home');
+Route::view('/wie-is-wie', 'wie-is-wie', ['districts' => config('gouw.districts')])->name('wie-is-wie');
+Route::view('/activiteiten', 'activiteiten')->name('activiteiten');
 
 Route::middleware('guest')->group(function () {
     Route::get('/login', [LoginController::class, 'create'])->name('login');

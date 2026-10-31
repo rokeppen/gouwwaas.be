@@ -21,11 +21,15 @@ class LoginController extends Controller
         $credentials = $request->validate([
             'email' => ['required', 'string', 'email'],
             'password' => ['required', 'string'],
+        ], [
+            'email.required' => 'Vul je e-mailadres in.',
+            'email.email' => 'Dit is geen geldig e-mailadres.',
+            'password.required' => 'Vul je wachtwoord in.',
         ]);
 
         if (! Auth::attempt($credentials, $request->boolean('remember'))) {
             throw ValidationException::withMessages([
-                'email' => 'These credentials do not match our records.',
+                'email' => 'Deze combinatie van e-mailadres en wachtwoord is niet correct.',
             ]);
         }
 

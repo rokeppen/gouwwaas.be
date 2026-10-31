@@ -1,17 +1,17 @@
 @extends('layouts.app')
 
-@section('title', 'Activities')
+@section('title', 'Activiteiten')
 
 @section('content')
     <section class="page-header">
         <div class="container">
-            <h1>Activities</h1>
+            <h1>Activiteiten</h1>
         </div>
     </section>
 
     <section class="container section">
         <div class="empty-state">
-            <p>Coming soon.</p>
+            <p>Binnenkort vind je hier onze activiteiten.</p>
         </div>
     </section>
 @endsection

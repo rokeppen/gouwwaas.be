@@ -12,10 +12,23 @@ class SiteTest extends TestCase
 
     public function test_public_pages_are_reachable(): void
     {
-        $this->get('/')->assertOk()->assertSee('Log in');
-        $this->get('/who-is-who')->assertOk()->assertSee('Who is who');
-        $this->get('/activities')->assertOk()->assertSee('Activities');
+        $this->get('/')->assertOk()->assertSee('Inloggen');
+        $this->get('/wie-is-wie')->assertOk()->assertSee('Gouwvoorzitter');
+        $this->get('/activiteiten')->assertOk()->assertSee('Activiteiten');
         $this->get('/login')->assertOk();
+    }
+
+    public function test_home_lists_every_district_with_its_groups(): void
+    {
+        $response = $this->get('/')->assertOk();
+
+        foreach (config('gouw.districts') as $district) {
+            $response->assertSee('District '.$district['name']);
+
+            foreach ($district['groups'] as [$name]) {
+                $response->assertSee($name);
+            }
+        }
     }
 
     public function test_user_can_log_in_and_is_welcomed(): void
@@ -26,7 +39,7 @@ class SiteTest extends TestCase
             ->assertRedirect('/');
 
         $this->assertAuthenticatedAs($user);
-        $this->get('/')->assertSeeText('Welcome Robin!');
+        $this->get('/')->assertSeeText('Welkom Robin!');
     }
 
     public function test_wrong_password_is_rejected(): void

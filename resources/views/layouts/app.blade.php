@@ -3,47 +3,41 @@
 <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <meta name="theme-color" content="#c7d121">
+    <meta name="theme-color" content="#23290a">
+    <meta name="description" content="@yield('description', 'Gouw Waas verenigt de scoutsgroepen van de districten Klaas, Lelie, Durme en Land van Aymon in het Waasland.')">
     <title>@yield('title', 'Home') · {{ config('app.name') }}</title>
-    <link rel="icon" href="{{ asset('images/favicon.svg') }}" type="image/svg+xml">
+    <link rel="icon" href="{{ asset('images/icon-192.png') }}" type="image/png">
+    <link rel="apple-touch-icon" href="{{ asset('images/icon-192.png') }}">
     <link rel="preload" href="{{ asset('fonts/nunito-sans-variable.woff2') }}" as="font" type="font/woff2" crossorigin>
     <link rel="stylesheet" href="{{ asset('css/app.css') }}?v={{ filemtime(public_path('css/app.css')) }}">
 </head>
 <body>
-    <a href="#content" class="skip-link">Skip to content</a>
+    <a href="#content" class="skip-link">Naar de inhoud</a>
 
     <header class="site-header">
         <div class="container header-inner">
-            <a href="{{ route('home') }}" class="brand" aria-label="Gouw Waas – home">
-                @if (file_exists(public_path('images/logo.svg')))
-                    <img src="{{ asset('images/logo.svg') }}" alt="" class="brand-logo">
-                @else
-                    <span class="brand-mark" aria-hidden="true">GW</span>
-                @endif
-                <span class="brand-text">
-                    <span class="brand-name">Gouw Waas</span>
-                    <span class="brand-tagline">Scouts en Gidsen Vlaanderen</span>
-                </span>
+            <a href="{{ route('home') }}" class="brand">
+                <img src="{{ asset('images/logo-200.webp') }}" alt="Gouw Waas – Scouts en Gidsen Vlaanderen" class="brand-logo" width="200" height="144">
             </a>
+
+            <nav class="tabs" aria-label="Hoofdmenu">
+                <a href="{{ route('home') }}" @class(['tab', 'active' => request()->routeIs('home')]) @if (request()->routeIs('home')) aria-current="page" @endif>Home</a>
+                <a href="{{ route('wie-is-wie') }}" @class(['tab', 'active' => request()->routeIs('wie-is-wie')]) @if (request()->routeIs('wie-is-wie')) aria-current="page" @endif>Wie is wie</a>
+                <a href="{{ route('activiteiten') }}" @class(['tab', 'active' => request()->routeIs('activiteiten')]) @if (request()->routeIs('activiteiten')) aria-current="page" @endif>Activiteiten</a>
+            </nav>
 
             <div class="account">
                 @auth
-                    <span class="welcome">Welcome <strong>{{ auth()->user()->name }}</strong>!</span>
+                    <span class="welcome">Welkom <strong>{{ auth()->user()->name }}</strong>!</span>
                     <form method="POST" action="{{ route('logout') }}">
                         @csrf
-                        <button type="submit" class="button button-ghost button-small">Log out</button>
+                        <button type="submit" class="button button-ghost button-small">Uitloggen</button>
                     </form>
                 @else
-                    <a href="{{ route('login') }}" class="button button-ghost button-small">Log in</a>
+                    <a href="{{ route('login') }}" class="button button-ghost button-small">Inloggen</a>
                 @endauth
             </div>
         </div>
-
-        <nav class="container tabs" aria-label="Main">
-            <a href="{{ route('home') }}" @class(['tab', 'active' => request()->routeIs('home')]) @if (request()->routeIs('home')) aria-current="page" @endif>Home</a>
-            <a href="{{ route('who-is-who') }}" @class(['tab', 'active' => request()->routeIs('who-is-who')]) @if (request()->routeIs('who-is-who')) aria-current="page" @endif>Who is who</a>
-            <a href="{{ route('activities') }}" @class(['tab', 'active' => request()->routeIs('activities')]) @if (request()->routeIs('activities')) aria-current="page" @endif>Activities</a>
-        </nav>
     </header>
 
     <main id="content">
@@ -52,15 +46,23 @@
 
     <footer class="site-footer">
         <div class="container footer-inner">
-            <div>
-                <p class="footer-name">Gouw Waas</p>
-                <p>Part of Scouts en Gidsen Vlaanderen</p>
+            <div class="footer-about">
+                <img src="{{ asset('images/logo-200.webp') }}" alt="" class="footer-logo" width="200" height="144" loading="lazy">
+                <p>Gouwhuis Karree, Sint-Niklaas</p>
             </div>
-            <ul class="footer-links">
-                <li><a href="mailto:gouwbureau@gouwwaas.be">gouwbureau@gouwwaas.be</a></li>
-                <li><a href="https://www.facebook.com/gouwwaas" rel="noopener">Facebook</a></li>
-                <li><a href="https://www.scoutsengidsenvlaanderen.be" rel="noopener">scoutsengidsenvlaanderen.be</a></li>
-            </ul>
+            <div>
+                <p class="footer-heading">Contact</p>
+                <ul class="footer-links">
+                    <li><a href="mailto:gouwbureau@gouwwaas.be">gouwbureau@gouwwaas.be</a></li>
+                    <li><a href="https://www.facebook.com/gouwwaas" rel="noopener">Facebook</a></li>
+                </ul>
+            </div>
+            <div>
+                <p class="footer-heading">Scouts en Gidsen Vlaanderen</p>
+                <ul class="footer-links">
+                    <li><a href="https://www.scoutsengidsenvlaanderen.be" rel="noopener">scoutsengidsenvlaanderen.be</a></li>
+                </ul>
+            </div>
         </div>
         <div class="container footer-bottom">&copy; {{ date('Y') }} Gouw Waas</div>
     </footer>

@@ -22,7 +22,7 @@ $env = [
     'APP_DEBUG' => 'false',
     'APP_KEY' => getenv('APP_KEY'),
     'APP_URL' => getenv('APP_URL'),
-    'APP_LOCALE' => 'en',
+    'APP_LOCALE' => 'nl',
     'APP_FALLBACK_LOCALE' => 'en',
 
     'LOG_CHANNEL' => 'daily',

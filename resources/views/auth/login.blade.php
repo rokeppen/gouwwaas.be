@@ -1,17 +1,17 @@
 @extends('layouts.app')
 
-@section('title', 'Log in')
+@section('title', 'Inloggen')
 
 @section('content')
     <section class="container section">
         <div class="card form-card">
-            <h1>Log in</h1>
+            <h1>Inloggen</h1>
 
             <form method="POST" action="{{ route('login') }}" class="form">
                 @csrf
 
                 <div class="field">
-                    <label for="email">E-mail</label>
+                    <label for="email">E-mailadres</label>
                     <input id="email" type="email" name="email" value="{{ old('email') }}" required autofocus autocomplete="username" @error('email') aria-invalid="true" aria-describedby="email-error" @enderror>
                     @error('email')
                         <p class="error" id="email-error">{{ $message }}</p>
@@ -19,7 +19,7 @@
                 </div>
 
                 <div class="field">
-                    <label for="password">Password</label>
+                    <label for="password">Wachtwoord</label>
                     <input id="password" type="password" name="password" required autocomplete="current-password" @error('password') aria-invalid="true" aria-describedby="password-error" @enderror>
                     @error('password')
                         <p class="error" id="password-error">{{ $message }}</p>
@@ -27,10 +27,10 @@
                 </div>
 
                 <label class="checkbox">
-                    <input type="checkbox" name="remember"> Remember me
+                    <input type="checkbox" name="remember"> Ingelogd blijven
                 </label>
 
-                <button type="submit" class="button button-block">Log in</button>
+                <button type="submit" class="button button-block">Inloggen</button>
             </form>
         </div>
     </section>
