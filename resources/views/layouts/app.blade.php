@@ -54,7 +54,7 @@
                 <p class="footer-heading">Contact</p>
                 <ul class="footer-links">
                     <li><a href="mailto:gouwbureau@gouwwaas.be">gouwbureau@gouwwaas.be</a></li>
-                    <li><a href="https://www.facebook.com/gouwwaas" rel="noopener">Facebook</a></li>
+                    <li><a href="https://www.instagram.com/gouw.waas/" rel="noopener">Instagram</a></li>
                 </ul>
             </div>
             <div>

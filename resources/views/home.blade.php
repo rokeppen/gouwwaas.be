@@ -95,7 +95,7 @@
             </div>
             <div class="cta-actions">
                 <a href="mailto:gouwbureau@gouwwaas.be" class="button button-accent">Mail het gouwbureau</a>
-                <a href="https://www.facebook.com/gouwwaas" class="button button-outline-light" rel="noopener">Stuur een bericht op Facebook</a>
+                <a href="https://www.instagram.com/gouw.waas/" class="button button-outline-light" rel="noopener">Stuur een bericht op Instagram</a>
             </div>
         </div>
     </section>
