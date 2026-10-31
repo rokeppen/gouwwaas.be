@@ -181,12 +181,32 @@ a:hover { color: var(--olive-dark); }
 .account {
     grid-area: account;
     display: flex;
-    align-items: center;
-    gap: 12px;
+    flex-direction: column;
+    align-items: flex-end;
+    justify-self: end;
+    gap: 4px;
 }
 
 .account form { margin: 0; }
-.welcome { font-size: .9375rem; }
+.welcome { font-size: .875rem; line-height: 1.3; }
+
+.account-actions {
+    display: flex;
+    gap: 6px;
+}
+
+.account-actions .button-small { min-height: 36px; padding: 4px 14px; font-size: .875rem; }
+
+/* Two-row header (logo + account, tabs below) once everything no longer fits on one line */
+@media (max-width: 960px) {
+    .header-inner {
+        grid-template-columns: auto 1fr;
+        grid-template-areas:
+            "brand account"
+            "tabs tabs";
+        padding-bottom: 8px;
+    }
+}
 
 /* Buttons */
 .button {
@@ -220,6 +240,11 @@ a:hover { color: var(--olive-dark); }
 
 .button-ghost { background: transparent; border-color: var(--border); color: var(--olive); }
 .button-ghost:hover { background: var(--lime-light); border-color: var(--lime); color: var(--ink); }
+
+.button-ghost.is-active { background: var(--lime-light); border-color: var(--lime); color: var(--ink); }
+
+.button-danger { background: transparent; border-color: #f3c2c6; color: var(--red); }
+.button-danger:hover { background: var(--red); border-color: var(--red); color: #fff; }
 
 .button-small { min-height: 40px; padding: 6px 16px; font-size: .9375rem; }
 .button-block { width: 100%; }
@@ -286,6 +311,86 @@ a:hover { color: var(--olive-dark); }
 }
 
 .page-header h1 { margin-bottom: .25em; }
+
+.page-header-row {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    justify-content: space-between;
+    gap: 16px;
+}
+
+.page-header-row h1 { margin: 0; }
+
+.back-link { font-weight: 700; text-decoration: none; }
+.back-link::before { content: "← "; }
+.back-link:hover { text-decoration: underline; }
+
+/* Status messages */
+.flash {
+    margin: 24px 0 0;
+    padding: 14px 18px;
+    border-left: 5px solid var(--lime);
+    border-radius: 10px;
+    background: var(--lime-light);
+    color: var(--ink);
+    font-weight: 600;
+}
+
+.flash-error { margin: 0 0 20px; border-left-color: var(--red); background: #fdecee; }
+
+.small { font-size: .9375rem; }
+
+/* Profile */
+.stack {
+    display: grid;
+    gap: 24px;
+    max-width: 640px;
+}
+
+.details { margin: 0 0 16px; display: grid; gap: 12px; }
+.details div { display: grid; grid-template-columns: 130px 1fr; gap: 12px; }
+.details dt { color: var(--muted); font-weight: 600; }
+.details dd { margin: 0; font-weight: 700; overflow-wrap: anywhere; }
+
+/* Users */
+.user-list {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    display: grid;
+    gap: 12px;
+}
+
+.user-row {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    justify-content: space-between;
+    gap: 16px;
+    padding: 18px 22px;
+}
+
+.user-info { min-width: 0; }
+.user-info p { margin: 0; overflow-wrap: anywhere; }
+
+.user-name {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    gap: 8px;
+    font-weight: 800;
+}
+
+.badge-muted { background: #eef0e6; color: var(--muted); }
+
+.user-actions {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 8px;
+}
+
+.user-actions form { margin: 0; }
 .page-header .lead { margin: 0; color: var(--muted); }
 
 .prose h2 { position: relative; padding-top: 16px; }
@@ -476,6 +581,10 @@ a.group-row:hover .group-name { color: var(--olive); }
 }
 
 .form-card h1 { font-size: 2rem; }
+.form-card-left { margin-left: 0; }
+
+.hint { margin: 6px 0 0; color: var(--muted); font-size: .875rem; }
+.form-note { margin: 16px 0 0; }
 
 .field { margin-bottom: 18px; }
 
@@ -485,6 +594,7 @@ label {
     font-weight: 700;
 }
 
+input[type=text],
 input[type=email],
 input[type=password] {
     width: 100%;
@@ -498,6 +608,7 @@ input[type=password] {
     transition: border-color .15s, box-shadow .15s;
 }
 
+input[type=text]:focus,
 input[type=email]:focus,
 input[type=password]:focus {
     outline: none;
@@ -615,31 +726,21 @@ input[aria-invalid=true] { border-color: var(--red); }
 
     .container { padding-left: 16px; padding-right: 16px; }
 
-    .header-inner {
-        grid-template-columns: auto 1fr;
-        grid-template-areas:
-            "brand account"
-            "tabs tabs";
-        padding-bottom: 8px;
-    }
-
     .brand-logo { height: 48px; }
 
-    .account {
-        flex-direction: column;
-        align-items: flex-end;
-        justify-self: end;
-        gap: 4px;
-    }
-
     .welcome {
-        max-width: 50vw;
+        max-width: 60vw;
         font-size: .8125rem;
-        line-height: 1.3;
         overflow: hidden;
         text-overflow: ellipsis;
         white-space: nowrap;
     }
+
+    .account-actions { gap: 4px; }
+    .account-actions .button-small { min-height: 34px; padding: 3px 10px; font-size: .8125rem; }
+
+    .details div { grid-template-columns: 1fr; gap: 0; }
+    .user-row { padding: 16px 18px; }
 
     .tabs { gap: 2px; margin-left: -8px; }
     .tab { padding: 6px 9px; font-size: .9063rem; }

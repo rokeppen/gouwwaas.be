@@ -30,10 +30,16 @@
             <div class="account">
                 @auth
                     <span class="welcome">Welkom <strong>{{ auth()->user()->name }}</strong>!</span>
-                    <form method="POST" action="{{ route('logout') }}">
-                        @csrf
-                        <button type="submit" class="button button-ghost button-small">Uitloggen</button>
-                    </form>
+                    <div class="account-actions">
+                        <a href="{{ route('profiel') }}" @class(['button', 'button-ghost', 'button-small', 'is-active' => request()->routeIs('profiel')])>Profiel</a>
+                        @can('admin')
+                            <a href="{{ route('gebruikers.index') }}" @class(['button', 'button-ghost', 'button-small', 'is-active' => request()->routeIs('gebruikers.*')])>Gebruikers</a>
+                        @endcan
+                        <form method="POST" action="{{ route('logout') }}">
+                            @csrf
+                            <button type="submit" class="button button-ghost button-small">Uitloggen</button>
+                        </form>
+                    </div>
                 @else
                     <a href="{{ route('login') }}" class="button button-ghost button-small">Inloggen</a>
                 @endauth
@@ -42,6 +48,12 @@
     </header>
 
     <main id="content">
+        @if (session('status'))
+            <div class="container">
+                <p class="flash" role="status">{{ session('status') }}</p>
+            </div>
+        @endif
+
         @yield('content')
     </main>
 

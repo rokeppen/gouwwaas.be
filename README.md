@@ -30,6 +30,16 @@ The site is in Dutch (`APP_LOCALE=nl`).
   (`resources/views/wie-is-wie.blade.php`)
 - `/activiteiten` – activities (`resources/views/activiteiten.blade.php`)
 - `/login` – login; once logged in the header shows "Welkom {naam}!"
+- `/wachtwoord-vergeten` – request a password reset e-mail
+- `/profiel` – logged-in users: see name, e-mail and role, change password
+- `/gebruikers` – admins only: add, edit and delete users, force a password reset
+
+**Users and admins.** Admins (`users.is_admin`) manage the other users. The flag
+cannot be set through the website: the account that existed when the
+`add_is_admin_to_users_table` migration ran became the admin. New users get an
+e-mail to choose their own password; "Wachtwoord resetten" makes the current
+password unusable, logs the user out everywhere and e-mails a reset link. Reset
+links are valid for 24 hours.
 
 **Districts and groups** are listed in `config/gouw.php` (source: Scoutnet) as
 `[name, municipality, group number, website]`. Edit that file to add, remove or
@@ -78,6 +88,10 @@ Add these under *Settings → Secrets and variables → Actions*:
 | `DB_HOST` | Usually `localhost` when the database is on the same server |
 | `DB_PORT` | Optional, defaults to `3306` |
 | `DB_DATABASE`, `DB_USERNAME`, `DB_PASSWORD` | Database credentials |
+| `MAIL_HOST` | SMTP server for password e-mails, e.g. the host's mail server. Without it, e-mails only go to the log |
+| `MAIL_PORT` | Optional, defaults to `587` (use `465` for SSL) |
+| `MAIL_USERNAME`, `MAIL_PASSWORD` | SMTP login, usually the mailbox address and its password |
+| `MAIL_FROM_ADDRESS` | Optional, defaults to `gouwbureau@gouwwaas.be` |
 
 ### One-time server setup
 

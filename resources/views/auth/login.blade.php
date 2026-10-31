@@ -32,6 +32,8 @@
 
                 <button type="submit" class="button button-block">Inloggen</button>
             </form>
+
+            <p class="form-note"><a href="{{ route('password.request') }}">Wachtwoord vergeten?</a></p>
         </div>
     </section>
 @endsection

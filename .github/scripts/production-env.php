@@ -42,6 +42,15 @@ $env = [
     'CACHE_STORE' => 'database',
     'QUEUE_CONNECTION' => 'database',
     'FILESYSTEM_DISK' => 'local',
+
+    // Without MAIL_HOST, e-mails (password resets) are only written to the log.
+    'MAIL_MAILER' => getenv('MAIL_HOST') ? 'smtp' : 'log',
+    'MAIL_HOST' => getenv('MAIL_HOST') ?: '127.0.0.1',
+    'MAIL_PORT' => getenv('MAIL_PORT') ?: '587',
+    'MAIL_USERNAME' => getenv('MAIL_USERNAME') ?: '',
+    'MAIL_PASSWORD' => getenv('MAIL_PASSWORD') ?: '',
+    'MAIL_FROM_ADDRESS' => getenv('MAIL_FROM_ADDRESS') ?: 'gouwbureau@gouwwaas.be',
+    'MAIL_FROM_NAME' => 'Gouw Waas',
 ];
 
 $lines = [];
