@@ -28,7 +28,8 @@ The site is in Dutch (`APP_LOCALE=nl`).
   (`resources/views/districten.blade.php`)
 - `/wie-is-wie` – gouwbureau, adjuncten and districtscommissarissen
   (`resources/views/wie-is-wie.blade.php`)
-- `/activiteiten` – activities (`resources/views/activiteiten.blade.php`)
+- `/activiteiten` – upcoming and past activities; anyone can open one and register
+  until the registration deadline (`resources/views/activiteiten/`)
 - `/login` – login; once logged in the header shows "Welkom {naam}!"
 - `/wachtwoord-vergeten` – request a password reset e-mail
 - `/profiel` – logged-in users: see name and e-mail, change password
@@ -40,6 +41,15 @@ cannot be set through the website: the account that existed when the
 e-mail to choose their own password; "Wachtwoord resetten" makes the current
 password unusable, logs the user out everywhere and e-mails a reset link. Reset
 links are valid for 24 hours.
+
+**Activities.** Every logged-in user can create activities (`/activiteiten/nieuw`)
+with a start (and optional end), location, description, registration deadline,
+price (empty = free) and their own registration questions (short/long text,
+number, e-mail, phone, date, dropdown, checkbox). Registrants always give their
+name and e-mail. Only the creator (or an admin) can edit or delete an activity and
+see its registrations, which can be downloaded as a CSV for Excel. Answers keep a
+copy of the question label, so changing or removing a question later does not
+lose earlier answers. Payment is not handled online: the price is informational.
 
 **Districts and groups** are listed in `config/gouw.php` (source: Scoutnet) as
 `[name, municipality, group number, website]`. Edit that file to add, remove or

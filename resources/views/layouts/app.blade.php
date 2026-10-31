@@ -24,7 +24,7 @@
                 <a href="{{ route('home') }}" @class(['tab', 'active' => request()->routeIs('home')]) @if (request()->routeIs('home')) aria-current="page" @endif>Home</a>
                 <a href="{{ route('districten') }}" @class(['tab', 'active' => request()->routeIs('districten')]) @if (request()->routeIs('districten')) aria-current="page" @endif>Districten</a>
                 <a href="{{ route('wie-is-wie') }}" @class(['tab', 'active' => request()->routeIs('wie-is-wie')]) @if (request()->routeIs('wie-is-wie')) aria-current="page" @endif>Wie is wie</a>
-                <a href="{{ route('activiteiten') }}" @class(['tab', 'active' => request()->routeIs('activiteiten')]) @if (request()->routeIs('activiteiten')) aria-current="page" @endif>Activiteiten</a>
+                <a href="{{ route('activiteiten.index') }}" @class(['tab', 'active' => request()->routeIs('activiteiten.*')]) @if (request()->routeIs('activiteiten.*')) aria-current="page" @endif>Activiteiten</a>
             </nav>
 
             <div class="account">
