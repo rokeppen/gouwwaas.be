@@ -518,20 +518,31 @@ input[aria-invalid=true] { border-color: var(--red); }
 
 .footer-inner {
     display: grid;
-    grid-template-columns: 1.4fr 1fr 1fr;
+    grid-template-columns: 1fr auto;
+    align-items: center;
     gap: 32px;
     padding-top: 48px;
     padding-bottom: 36px;
 }
 
-.footer-logo { width: 140px; margin-bottom: 12px; }
+.footer-about {
+    display: flex;
+    align-items: center;
+    gap: 28px;
+}
 
-.footer-heading {
-    margin-bottom: 8px;
+.footer-logo { flex: none; width: 160px; }
+
+.footer-address {
+    margin-bottom: 14px;
+    font-style: normal;
+    line-height: 1.55;
+}
+
+.footer-address strong {
     color: #fff;
     font-family: var(--font-heading);
     font-size: 1.1875rem;
-    font-weight: 700;
 }
 
 .footer-links {
@@ -539,8 +550,18 @@ input[aria-invalid=true] { border-color: var(--red); }
     margin: 0;
     padding: 0;
     display: grid;
-    gap: 6px;
+    gap: 8px;
 }
+
+.footer-links a {
+    display: inline-flex;
+    align-items: center;
+    gap: 10px;
+    text-decoration: none;
+}
+
+.footer-links a:hover { text-decoration: underline; }
+.footer-links svg { flex: none; color: var(--lime); }
 
 .footer-federation { justify-self: end; }
 
@@ -570,8 +591,6 @@ input[aria-invalid=true] { border-color: var(--red); }
     .districts,
     .roles { grid-template-columns: 1fr; }
 
-    .footer-inner { grid-template-columns: 1fr 1fr; }
-    .footer-about { grid-column: 1 / -1; }
 }
 
 /* Mobile */
@@ -616,6 +635,8 @@ input[aria-invalid=true] { border-color: var(--red); }
     .district-header, .group-list { padding-left: 18px; padding-right: 18px; }
 
     .footer-inner { grid-template-columns: 1fr; }
+    .footer-about { gap: 18px; }
+    .footer-logo { width: 110px; }
     .footer-federation { justify-self: start; }
 }
 

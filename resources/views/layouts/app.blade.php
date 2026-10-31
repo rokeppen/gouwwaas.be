@@ -47,15 +47,28 @@
     <footer class="site-footer">
         <div class="container footer-inner">
             <div class="footer-about">
-                <img src="{{ asset('images/logo-200.webp') }}" alt="" class="footer-logo" width="200" height="144" loading="lazy">
-                <p>Gouwhuis Karree, Sint-Niklaas</p>
-            </div>
-            <div>
-                <p class="footer-heading">Contact</p>
-                <ul class="footer-links">
-                    <li><a href="mailto:gouwbureau@gouwwaas.be">gouwbureau@gouwwaas.be</a></li>
-                    <li><a href="https://www.instagram.com/gouw.waas/" rel="noopener">Instagram</a></li>
-                </ul>
+                <img src="{{ asset('images/logo-200.webp') }}" alt="Gouw Waas" class="footer-logo" width="200" height="144" loading="lazy">
+                <div>
+                    <address class="footer-address">
+                        <strong>Gouwhuis Karree</strong><br>
+                        Apostelstraat 5-7<br>
+                        9100 Sint-Niklaas
+                    </address>
+                    <ul class="footer-links">
+                        <li>
+                            <a href="mailto:gouwbureau@gouwwaas.be">
+                                <svg viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="2" y="4" width="20" height="16" rx="2"/><path d="m22 7-10 6L2 7"/></svg>
+                                gouwbureau@gouwwaas.be
+                            </a>
+                        </li>
+                        <li>
+                            <a href="https://www.instagram.com/gouw.waas/" rel="noopener">
+                                <svg viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="2" y="2" width="20" height="20" rx="5"/><circle cx="12" cy="12" r="4"/><circle cx="17.5" cy="6.5" r=".5" fill="currentColor"/></svg>
+                                @gouw.waas
+                            </a>
+                        </li>
+                    </ul>
+                </div>
             </div>
             <div class="footer-federation">
                 <a href="https://www.scoutsengidsenvlaanderen.be/" rel="noopener" class="federation-link">
