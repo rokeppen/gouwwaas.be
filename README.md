@@ -31,7 +31,7 @@ The site is in Dutch (`APP_LOCALE=nl`).
 - `/activiteiten` – activities (`resources/views/activiteiten.blade.php`)
 - `/login` – login; once logged in the header shows "Welkom {naam}!"
 - `/wachtwoord-vergeten` – request a password reset e-mail
-- `/profiel` – logged-in users: see name, e-mail and role, change password
+- `/profiel` – logged-in users: see name and e-mail, change password
 - `/gebruikers` – admins only: add, edit and delete users, force a password reset
 
 **Users and admins.** Admins (`users.is_admin`) manage the other users. The flag

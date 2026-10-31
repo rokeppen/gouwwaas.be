@@ -22,10 +22,6 @@
                         <dt>E-mailadres</dt>
                         <dd>{{ $user->email }}</dd>
                     </div>
-                    <div>
-                        <dt>Rol</dt>
-                        <dd>{{ $user->is_admin ? 'Beheerder' : 'Gebruiker' }}</dd>
-                    </div>
                 </dl>
                 <p class="muted small">Klopt je naam of e-mailadres niet? Vraag een beheerder om het aan te passen.</p>
             </div>

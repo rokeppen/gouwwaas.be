@@ -26,7 +26,8 @@ class ProfileTest extends TestCase
         $this->actingAs($user)->get('/profiel')
             ->assertOk()
             ->assertSee('Robin')
-            ->assertSee('robin@example.com');
+            ->assertSee('robin@example.com')
+            ->assertDontSee('Rol');
     }
 
     public function test_password_can_be_changed_with_the_current_password(): void
